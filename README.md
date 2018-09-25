@@ -18,7 +18,10 @@ ApusPayments is a plataform to make payments using criptocurrencies.
 
 ## Dependencies
 ```
+--- ApusPayments
 <TargetFramework>netstandard20</TargetFramework>
+
+--- ApusPayments.Playground
 <TargetFramework>net461</TargetFramework>
 ```
 

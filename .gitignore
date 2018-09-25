@@ -11,3 +11,6 @@
 /.vs/ApusPayments/DesignTimeBuild
 /ApusPayments/obj
 *.user
+/ApusPayments.Playground/obj/Release
+/ApusPayments.Playground/bin/Release
+/ApusPayments/bin/Release
