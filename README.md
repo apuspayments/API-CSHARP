@@ -6,6 +6,8 @@ ApusPayments is a plataform to make payments using criptocurrencies.
 
 [Documentation API (v0.0.1)](https://docs.apuspayments.com/)
 
+[![NuGet version](https://img.shields.io/nuget/v/ApusPayments.svg)](https://www.nuget.org/packages/ApusPayments)
+
 ## Examples of use 
 
 * [ ] Make a payments
