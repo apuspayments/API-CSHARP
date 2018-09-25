@@ -3,3 +3,11 @@
 ################################################################################
 
 /packages/Newtonsoft.Json.11.0.2
+/ApusPayments.Playground/bin/Debug
+/ApusPayments.Playground/obj/Debug
+/ApusPayments/bin/Debug
+/ApusPayments/obj/Debug
+/.vs/ApusPayments/v15
+/.vs/ApusPayments/DesignTimeBuild
+/ApusPayments/obj
+*.user

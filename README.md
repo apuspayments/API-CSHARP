@@ -8,44 +8,152 @@ ApusPayments is a plataform to make payments using criptocurrencies.
 
 ## Examples of use 
 
-* [ ] Payments by card
-* [ ] Recurring payments
-* [ ] Cancel payment
-* [ ] Consult payments
-* [ ] Cryptocurrency recharge
+* [ ] Make a payments
+* [ ] Make a recurring payments
+* [ ] Search payments
+* [ ] Cancel a payment
+* [ ] Recharge of Crypto Balance
 
 <hr>
 
-## Payments by card
+## Dependencies
+```
+<TargetFramework>netstandard20</TargetFramework>
+<TargetFramework>net461</TargetFramework>
+```
+
+```
+Install-Package Newtonsoft.Json -Version 11.0.2
+```
+
+## Make a payments
 
 ```c#
-Console.WriteLine("Payments by card");
+ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
+
+string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
+string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
+
+string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
+string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
+
+MakePayment makePayment = new MakePayment();
+makePayment.pan = pan;
+makePayment.password = password;
+makePayment.blockchain = BlockChainType.LTC;
+makePayment.amount = 13.88;
+makePayment.currency = CurrencyType.BRL;
+makePayment.vendorKey = vendorKey;
+
+var makePaymentReturn = apusPaymentsAPI.MakePayment(makePayment);
+
+Console.WriteLine("Make a Payment: " + JsonConvert.SerializeObject(makePaymentReturn));
+Console.WriteLine("");
 ```
 <hr>
 
-## Recurring payments
+## Make a recurring payments
 
 ```c#
-Console.WriteLine("Recurring payments");
+ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
+
+string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
+string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
+
+string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
+string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
+
+ MakeRecurringPayment makeRecurringPayment = new MakeRecurringPayment();
+ makeRecurringPayment.pan = pan;
+ makeRecurringPayment.password = password;
+ makeRecurringPayment.blockchain = BlockChainType.LTC;
+ makeRecurringPayment.amount = 13.88;
+ makeRecurringPayment.currency = CurrencyType.BRL;
+ makeRecurringPayment.period = PeriodType.M;
+ makeRecurringPayment.vendorKey = vendorKey;
+
+ var makeRecurringPaymentReturn = apusPaymentsAPI.MakeRecurringPayment(makeRecurringPayment);
+
+ Console.WriteLine("Make a Recurring Payment: " + JsonConvert.SerializeObject(makeRecurringPaymentReturn));
+ Console.WriteLine("");
 ```
+
 <hr>
 
-## Cancel payment
+## Search payments
 
 ```c#
-Console.WriteLine("Cancel payment");
+ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
+
+string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
+string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
+
+string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
+string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
+
+SearchPayment searchPayment = new SearchPayment();
+searchPayment.vendorKey = vendorKey;
+searchPayment.txId = "";
+searchPayment.timestamp = "";
+searchPayment.blockchain = BlockChainType.LTC;
+searchPayment.currency = CurrencyType.BRL;
+searchPayment.coinAmount = "";
+searchPayment.currencyAmount = "";
+searchPayment.buyer = "";
+
+var searchPaymentReturn = apusPaymentsAPI.SearchPayment(searchPayment);
+
+Console.WriteLine("Search Payment: " + JsonConvert.SerializeObject(searchPaymentReturn));
+Console.WriteLine("");
 ```
+
 <hr>
 
-## Consult payments
+## Cancel a payment
 
 ```c#
-Console.WriteLine("Consult payments");
+ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
+
+string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
+string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
+
+string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
+string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
+
+CancelPayment cancelPayment = new CancelPayment();
+cancelPayment.txId = "2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f";
+cancelPayment.password = vendorPassword;
+cancelPayment.vendorKey = vendorKey;
+
+var cancelPaymentReturn = apusPaymentsAPI.CancelPayment(cancelPayment);
+
+Console.WriteLine("Cancel a Payment: " + JsonConvert.SerializeObject(cancelPaymentReturn));
+Console.WriteLine("");
 ```
+
 <hr>
 
-## Cryptocurrency recharge
+## Recharge of Crypto Balance
 
 ```c#
-Console.WriteLine("Cryptocurrency recharge");
+ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
+
+string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
+string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
+
+string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
+string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
+
+RechargeCryptoBalance rechargeCryptoBalance = new RechargeCryptoBalance();
+rechargeCryptoBalance.pan = pan;
+rechargeCryptoBalance.password = password;
+rechargeCryptoBalance.blockchain = BlockChainType.LTC;
+rechargeCryptoBalance.amount = 13.88;
+rechargeCryptoBalance.currency = CurrencyType.BRL;
+rechargeCryptoBalance.vendorKey = vendorKey;
+
+var rechargeCryptoBalanceReturn = apusPaymentsAPI.RechargeCryptoBalance(rechargeCryptoBalance);
+
+Console.WriteLine("Recharge of Crypto Balance: " + JsonConvert.SerializeObject(rechargeCryptoBalanceReturn));
+Console.WriteLine("");
 ```

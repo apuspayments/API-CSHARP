@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>With our payment platform, it is very easy to accept payment transactions in cryptocurrencies (processed directly in the blockchain), there is no confidential information from customers to collect and store, and there are no cards to collect. Customers simply send the cryptocurrency from their account directly to a merchant payment address identified by a key (vendorKey). You can accept blockchain payments in several ways. Choose a method below to get started.
+</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>
