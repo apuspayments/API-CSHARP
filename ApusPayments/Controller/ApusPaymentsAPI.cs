@@ -1,4 +1,5 @@
-﻿using ApusPayments.Constants;
+﻿using ApusPayments.Comuns;
+using ApusPayments.Constants;
 using ApusPayments.Domain.Request;
 using ApusPayments.Domain.Response;
 using Newtonsoft.Json;
@@ -49,6 +50,10 @@ namespace ApusPayments.Controller
         {
             try
             {
+                //Convert to Sha256
+                makePayment.pan = Converts.ComputeSha256Hash(makePayment.pan);
+                makePayment.password = Converts.ComputeSha256Hash(makePayment.password);
+
                 string urlBase = this.SandBox ? GlobalType.URL_BASE_SANDBOX : GlobalType.URL_BASE_DEFAULT;
 
                 string strJson = JsonConvert.SerializeObject(makePayment);
@@ -88,6 +93,10 @@ namespace ApusPayments.Controller
         {
             try
             {
+                //Convert to Sha256
+                makeRecurringPayment.pan = Converts.ComputeSha256Hash(makeRecurringPayment.pan);
+                makeRecurringPayment.password = Converts.ComputeSha256Hash(makeRecurringPayment.password);
+
                 string urlBase = this.SandBox ? GlobalType.URL_BASE_SANDBOX : GlobalType.URL_BASE_DEFAULT;
 
                 string strJson = JsonConvert.SerializeObject(makeRecurringPayment);
@@ -178,7 +187,10 @@ namespace ApusPayments.Controller
         public Checkout CancelPayment(CancelPayment cancelPayment)
         {
             try
-            {
+            {   
+                //Convert to Sha256
+                cancelPayment.password = Converts.ComputeSha256Hash(cancelPayment.password);
+
                 string urlBase = this.SandBox ? GlobalType.URL_BASE_SANDBOX : GlobalType.URL_BASE_DEFAULT;
 
                 string strJson = JsonConvert.SerializeObject(cancelPayment);
@@ -218,6 +230,10 @@ namespace ApusPayments.Controller
         {
             try
             {
+                //Convert to Sha256
+                rechargeCryptoBalance.pan = Converts.ComputeSha256Hash(rechargeCryptoBalance.pan);
+                rechargeCryptoBalance.password = Converts.ComputeSha256Hash(rechargeCryptoBalance.password);
+
                 string urlBase = this.SandBox ? GlobalType.URL_BASE_SANDBOX : GlobalType.URL_BASE_DEFAULT;
 
                 string strJson = JsonConvert.SerializeObject(rechargeCryptoBalance);

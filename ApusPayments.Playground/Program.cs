@@ -1,5 +1,4 @@
-﻿using ApusPayments.Comuns;
-using ApusPayments.Constants;
+﻿using ApusPayments.Constants;
 using ApusPayments.Controller;
 using ApusPayments.Domain.Request;
 using Newtonsoft.Json;
@@ -13,11 +12,11 @@ namespace ApusPayments.Playground
         {
             ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
 
-            string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
-            string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
+            string pan = "9999999999999999"; 
+            string password = "1234";
 
             string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
-            string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
+            string vendorPassword = "1234"; 
 
             // Make a payment
             MakePayment makePayment = new MakePayment();

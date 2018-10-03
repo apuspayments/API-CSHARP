@@ -36,11 +36,9 @@ Install-Package Newtonsoft.Json -Version 11.0.2
 ```c#
 ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
 
-string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
-string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
-
+string pan = "9999999999999999";
+string password = "9999999999999999";
 string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
-string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
 
 MakePayment makePayment = new MakePayment();
 makePayment.pan = pan;
@@ -62,11 +60,9 @@ Console.WriteLine("");
 ```c#
 ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
 
-string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
-string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
-
+string pan = "9999999999999999";
+string password = "9999999999999999";
 string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
-string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
 
  MakeRecurringPayment makeRecurringPayment = new MakeRecurringPayment();
  makeRecurringPayment.pan = pan;
@@ -90,11 +86,7 @@ string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c
 ```c#
 ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
 
-string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
-string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
-
 string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
-string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
 
 SearchPayment searchPayment = new SearchPayment();
 searchPayment.vendorKey = vendorKey;
@@ -119,11 +111,8 @@ Console.WriteLine("");
 ```c#
 ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
 
-string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
-string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
-
 string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
-string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
+string vendorPassword = "1234"; 
 
 CancelPayment cancelPayment = new CancelPayment();
 cancelPayment.txId = "2bf779e2a311c2629df977b0bb105879411fd71f5839972c4ed1d3278f80170f";
@@ -143,11 +132,9 @@ Console.WriteLine("");
 ```c#
 ApusPaymentsAPI apusPaymentsAPI = new ApusPaymentsAPI(EnviromentType.SandBox);
 
-string pan = Converts.ComputeSha256Hash("9999999999999999"); // "0866a6eaea5cb085e4cf6ef19296bf19647552dd5f96f1e530db3ae61837efe7";
-string password = Converts.ComputeSha256Hash("1234");  // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";  
-
+string pan = "9999999999999999";
+string password = "9999999999999999";
 string vendorKey = "5f5bdaed-f82b-4b82-b3f5-1d562633da5b";
-string vendorPassword = Converts.ComputeSha256Hash("1234"); // "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"; 
 
 RechargeCryptoBalance rechargeCryptoBalance = new RechargeCryptoBalance();
 rechargeCryptoBalance.pan = pan;
