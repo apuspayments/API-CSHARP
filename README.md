@@ -11,11 +11,11 @@ ApusPayments is a plataform to make payments using criptocurrencies.
 
 ## Examples of use 
 
-* [ ] Make a payments
-* [ ] Make a recurring payments
-* [ ] Search payments
-* [ ] Cancel a payment
-* [ ] Recharge of Crypto Balance
+* [x] Make a payments
+* [x] Make a recurring payments
+* [x] Search payments
+* [x] Cancel a payment
+* [x] Recharge of Crypto Balance
 
 <hr>
 
